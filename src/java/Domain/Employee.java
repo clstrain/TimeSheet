@@ -6,6 +6,7 @@
 package Domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -93,7 +94,10 @@ public class Employee implements Serializable {
     }
 
     public TimeSheet getTimeSheet() {
-        return timeSheet;
+        if (this.timeSheet == null) {
+            this.timeSheet = new TimeSheet();
+        }
+        return this.timeSheet;
     }
 
     public void setTimeSheet(TimeSheet timeSheet) {

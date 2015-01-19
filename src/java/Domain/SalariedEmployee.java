@@ -17,7 +17,7 @@ import javax.validation.constraints.NotNull;
  * @author Armando.Perea
  */
 @Entity
-public class SalariedEmployee implements Serializable {
+public class SalariedEmployee extends Employee implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

@@ -40,7 +40,10 @@ public class Project implements Serializable {
     }
 
     public List<TimeSheet> getTimeSheets() {
-        return timeSheets;
+        if (this.timeSheets == null) {
+            this.timeSheets = new ArrayList<>();
+        }
+        return this.timeSheets;
     }
 
     public void setTimeSheets(List<TimeSheet> timeSheets) {
