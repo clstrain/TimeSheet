@@ -13,6 +13,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -20,12 +21,34 @@ import javax.persistence.ManyToMany;
  */
 @Entity
 public class Project implements Serializable {
+
+    @NotNull
+    private String name;
+
+    /**
+     * Get the value of name
+     *
+     * @return the value of name
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * Set the value of name
+     *
+     * @param name new value of name
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
     @ManyToMany(mappedBy = "projects")
     private List<TimeSheet> timeSheets;
-    
+
     @ManyToMany
-    private List<Task>tasks;
-    
+    private List<Task> tasks;
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -52,9 +75,9 @@ public class Project implements Serializable {
 
     public List<Task> getTasks() {
         if (this.tasks == null) {
-        this.tasks = new ArrayList<>();
-    }
-    return this.tasks;
+            this.tasks = new ArrayList<>();
+        }
+        return this.tasks;
     }
 
     public void setTasks(List<Task> tasks) {
@@ -85,5 +108,5 @@ public class Project implements Serializable {
     public String toString() {
         return "Domain.Project[ id=" + id + " ]";
     }
-    
+
 }

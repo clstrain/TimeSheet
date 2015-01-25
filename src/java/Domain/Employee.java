@@ -29,6 +29,48 @@ public class Employee implements Serializable {
     protected TimeSheet timeSheet;
 
     @NotNull
+    private double hourlyRate;
+
+    /**
+     * Get the value of hourlyRate
+     *
+     * @return the value of hourlyRate
+     */
+    public double getHourlyRate() {
+        return hourlyRate;
+    }
+
+    /**
+     * Set the value of hourlyRate
+     *
+     * @param hourlyRate new value of hourlyRate
+     */
+    public void setHourlyRate(double hourlyRate) {
+        this.hourlyRate = hourlyRate;
+    }
+
+    @NotNull
+    private boolean isManager;
+
+    /**
+     * Get the value of isManager
+     *
+     * @return the value of isManager
+     */
+    public boolean isIsManager() {
+        return isManager;
+    }
+
+    /**
+     * Set the value of isManager
+     *
+     * @param isManager new value of isManager
+     */
+    public void setIsManager(boolean isManager) {
+        this.isManager = isManager;
+    }
+
+    @NotNull
     protected String employeeNumber, firstName, lastName, socialSecurityNumber;
 
     protected String street, city, stateAddress, zip;

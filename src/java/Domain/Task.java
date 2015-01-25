@@ -13,6 +13,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -23,6 +24,27 @@ public class Task implements Serializable {
 
     @ManyToMany(mappedBy = "tasks")
     private List<Project> projects;
+
+    @NotNull
+    private String name;
+
+    /**
+     * Get the value of name
+     *
+     * @return the value of name
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * Set the value of name
+     *
+     * @param name new value of name
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
 
     private static final long serialVersionUID = 1L;
     @Id

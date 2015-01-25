@@ -8,22 +8,21 @@
 
     <ui:composition>
 
-        <p:dialog id="TimeSheetEditDlg" widgetVar="TimeSheetEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditTimeSheetTitle}">
-            <h:form id="TimeSheetEditForm">
+        <p:dialog id="TimeSheetCreateDlg" widgetVar="TimeSheetCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateTimeSheetTitle}">
+            <h:form id="TimeSheetCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{timeSheetController.selected != null}">
-                        <p:outputLabel value="#{bundle.EditTimeSheetLabel_id}" for="id" />
-                        <p:inputText id="id" value="#{timeSheetController.selected.id}" title="#{bundle.EditTimeSheetTitle_id}" />
-                        <p:outputLabel value="#{bundle.EditTimeSheetLabel_employee}" for="employee" />
+                        <p:outputLabel value="#{bundle.CreateTimeSheetLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{timeSheetController.selected.id}" title="#{bundle.CreateTimeSheetTitle_id}" />
+                        <p:outputLabel value="#{bundle.CreateTimeSheetLabel_employee}" for="employee" />
                         <p:selectOneMenu id="employee" value="#{timeSheetController.selected.employee}" >
-                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
                             <f:selectItems value="#{employeeController.itemsAvailableSelectOne}"
                                            var="employeeItem" itemLabel="#{employeeItem.employeeNumber}: #{employeeItem.lastName}, #{employeeItem.firstName}"
                                            itemValue="#{employeeItem}"/>
                         </p:selectOneMenu>
                     </p:panelGrid>
-                    <p:commandButton actionListener="#{timeSheetController.update}" value="#{bundle.Save}" update="display,:TimeSheetListForm:datalist,:growl" oncomplete="handleSubmit(args, 'TimeSheetEditDialog');"/>
-                    <p:commandButton value="#{bundle.Cancel}" onclick="TimeSheetEditDialog.hide()"/>
+                    <p:commandButton actionListener="#{timeSheetController.create}" value="#{bundle.Save}" update="display,:TimeSheetListForm:datalist,:growl" oncomplete="handleSubmit(args,'TimeSheetCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="TimeSheetCreateDialog.hide()"/>
                 </h:panelGroup>
             </h:form>
         </p:dialog>
