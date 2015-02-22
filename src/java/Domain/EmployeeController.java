@@ -23,7 +23,9 @@ public class EmployeeController implements Serializable {
 
     @EJB
     private Domain.EmployeeFacade ejbFacade;
+    
     private List<Employee> items = null;
+    
     private Employee selected;
 
     public EmployeeController() {
